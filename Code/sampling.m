@@ -1,0 +1,227 @@
+% This code conatins the resampling of force signal. It contains code for different experiments.
+
+% April 18 Left pov
+% depth = table2array(readtable('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April18/april18_depth_200poke_silicone_left_top.csv'));
+% force = table2array(readtable('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April18/force_left_filtered_300Hz.csv'));
+% 
+% N = 1;  %first ordez
+% fs=10000;
+% depth = depth(1:38500);
+% cutoff_Hz = 500;  %should be 3dB at the cutoff
+% [b,a]=butter(N,cutoff_Hz/(fs/2),'low');
+% filt = filter(b,a,depth);
+% [P,Q] = rat(3999/119999);
+% 
+% disp(size(depth))
+% disp(size(force))
+% 
+% force = resample(force,3818,120000) ; %% This affects the resampling of
+% force values
+% 
+% hold on;
+% disp(size(depth))
+% disp(size(force))
+% 
+% 
+% force = (force);
+% 
+% 
+% depth = filt-0.056;
+% 
+% fs=10000;
+% 
+% B = (force<=0);
+% depth(B)=0;
+% force(B)=0;
+% %force = (force+0.52)/2;
+% 
+% plot(force(1:18260));
+% plot(depth(1:18260,:));
+% disp(size(depth))
+% disp(size(force))
+% %depth = (depth)*(120)-1.5;
+% % depth = depth(30000:end,:);
+% % force = force(30000:end,:)
+% csvwrite('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April18/final_sample_depth_left_removed_lower_unscaled_exp4.csv',depth(1:18260))
+% csvwrite('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April18/final_sample_force_left_removed_lower_unscaled_exp4.csv',force(1:18260))
+% 
+% td = finddelay(depth(1:end,:),force(1:end,:));
+% % shifted_data = delayseq(depth,1000);
+% disp(td);
+% %plot(shifted_data)
+% %plot(xcorr(depth,force(1:119970,:)))
+% %[depth,by] = resample(filt,4141,138);
+% %y = downsample(force,33);
+% %plot((y(92:end,:)+0.52))
+% %interp(depth,17)
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% April 18 top pov 90 deg
+% depth = table2array(readtable('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April18/april18_depth_200poke_silicone_top_pov.csv'));
+% force = table2array(readtable('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April18/force_pov_filtered_300Hz.csv'));
+% 
+% N = 1;  %first ordez
+% fs=10000;
+% depth = depth(200:38500);
+% cutoff_Hz = 500;  %should be 3dB down at the cutoff
+% [b,a]=butter(N,cutoff_Hz/(fs/2),'low');
+% filt = filter(b,a,depth);
+% [P,Q] = rat(3999/119999);
+% 
+% disp(size(depth))
+% disp(size(force))
+% 
+% force = resample(force,3814,120000) ;
+% 
+% hold on;
+% disp(size(depth))
+% disp(size(force))
+% 
+% 
+% force = (force);
+% 
+% 
+% depth = filt-0.0184;%*100-2;
+% 
+% fs=10000;
+% 
+% % B = (force<=0);
+% % depth(B)=0;
+% % force(B)=0;
+% %force = (force+0.52)/2;
+% 
+% plot(force(7000:end));
+% plot(depth(7000:end,:));
+% disp(size(depth))
+% disp(size(force))
+% %depth = (depth)*(120)-1.5;
+% % depth = depth(30000:end,:);
+% % force = force(30000:end,:)
+% csvwrite('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April18/final_sample_depth_pov_unscaled_exp3.csv',depth(20:end,:))
+% csvwrite('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April18/final_sample_force_pov_unscaled_exp3.csv',force(20:end,:))
+% 
+% td = finddelay(depth(1:end,:),force(1:end,:));
+% % shifted_data = delayseq(depth,1000);
+% disp(td);
+% %plot(shifted_data)
+% %plot(xcorr(depth,force(1:119970,:)))
+% %[depth,by] = resample(filt,4141,138);
+% %y = downsample(force,33);
+% %plot((y(92:end,:)+0.52))
+% %interp(depth,17)
+
+%%%%%%%% April 17 top far
+% depth = table2array(readtable('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April17/april17_depth_200poke_silicone_top_far.csv'));
+% force = table2array(readtable('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April17/force_filtered_300Hz.csv'));
+% 
+% N = 1;  %first ordez
+% fs=10000;
+% depth = depth(150:38500);
+% cutoff_Hz = 500;  %should be 3dB down at the cutoff
+% [b,a]=butter(N,cutoff_Hz/(fs/2),'low');
+% filt = filter(b,a,depth);
+% [P,Q] = rat(3999/119999);
+% 
+% disp(size(depth))
+% disp(size(force))
+% 
+% force = resample(force,3834,120000) ;
+% 
+% hold on;
+% disp(size(depth))
+% disp(size(force))
+% 
+% 
+% force = (force);
+% 
+% 
+% depth = filt-0.098;%*100-9.84;
+% 
+% fs=10000;
+% 
+% B = (force<=0);
+% depth(B)=0;
+% force(B)=0;
+% %force = (force+0.52)/2;
+% 
+% plot(force(20:end));
+% plot(depth(20:end,:));
+% disp(size(depth))
+% disp(size(force))
+% %depth = (depth)*(120)-1.5;
+% % depth = depth(30000:end,:);
+% % force = force(30000:end,:)
+% csvwrite('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April17/final_sample_depth_removed_lower_unscaled_exp1.csv',depth(20:end,:))
+% csvwrite('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April17/final_sample_force_removed_lower_unscaled_exp1.csv',force(20:end,:))
+% 
+% td = finddelay(depth(1:end,:),force(1:end,:));
+% % shifted_data = delayseq(depth,1000);
+% disp(td);
+% %plot(shifted_data)
+% %plot(xcorr(depth,force(1:119970,:)))
+% %[depth,by] = resample(filt,4141,138);
+% %y = downsample(force,33);
+% %plot((y(92:end,:)+0.52))
+% %interp(depth,17)
+
+
+%%%%%%%%% APRIL 2 %%%%%%%%%%%%%%%%%%%%%%%
+depth = table2array(readtable('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April2/april2_depth_200poke_silicone.csv'));
+force = table2array(readtable('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April2/force_filtered_7_200Hz.csv'));
+
+N = 1;  %first ordez
+fs=10000;
+depth = depth(110:38300);
+cutoff_Hz = 500;  %should be 3dB down at the cutoff
+[b,a]=butter(N,cutoff_Hz/(fs/2),'low');
+filt = filter(b,a,depth);
+[P,Q] = rat(3999/119999);
+
+
+
+disp(size(depth))
+disp(size(force))
+
+force = resample(force,3818,120000) ;
+
+hold on;
+disp(size(depth))
+disp(size(force))
+
+
+hold on;
+force = (force);%+0.50);
+
+
+hold on;
+depth = filt-0.094;%*100-9.4;
+
+fs=10000;
+legend('force','depth')
+
+% B = force <= 0;
+% depth(B)=[];
+% force(B)=[];
+% plot(force(12430:end));
+plot(depth(12430:end,:));
+disp(size(depth))
+disp(size(force))
+%depth = (depth)*(120)-1.5;
+% depth = depth(30000:end,:);
+% force = force(30000:end,:)
+% csvwrite('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April2/final_sample_depth_unscaled_removed_lower_exp0_v2.csv',depth(12430:end,:))
+% csvwrite('/Users/sunnysingh/Desktop/HarVi/curr_work/CSV/April2/final_sample_force_unscaled_removed_lower_exp0_v2.csv',force(12430:end,:))
+
+td = finddelay(depth(12430:end,:),force(12430:end,:));
+% shifted_data = delayseq(depth,1000);
+disp(td);
+%plot(shifted_data)
+%plot(xcorr(depth,force(1:119970,:)))
+%[depth,by] = resample(filt,4141,138);
+%y = downsample(force,33);
+%plot((y(92:end,:)+0.52))
+%interp(depth,17)
+
+
